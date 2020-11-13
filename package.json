@@ -1,0 +1,11 @@
+{
+  "name": "ikom9120",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "ikom9120 <ikom9120@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "jquery": "^3.5.1"
+  }
+}
