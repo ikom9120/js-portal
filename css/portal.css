@@ -1,0 +1,29 @@
+.head {
+    background-color: #76abcf;
+    min-height: 70px;
+}
+
+.head-content {
+    color: white;
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.content {
+    min-height: 500px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.news {
+    border-left: 1px solid #d7d7d7;
+}
+
+.horoscope {
+    border-left: 1px solid #d7d7d7;
+}
+
+.weather {
+    border-left: 1px solid #d7d7d7;
+
+}
