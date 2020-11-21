@@ -1,10 +1,12 @@
-.navbar {
+.head {
     background-color: #76abcf;
+    min-height: 70px;
 }
 
-.navbar-brand {
-    color: white !important;
-    font-size: 25px !important;
+.head-content {
+    color: white;
+    font-size: 25px;
+    margin-top: 15px;
 }
 
 .content {
@@ -18,10 +20,10 @@
 }
 
 .horoscope {
-    border-left: 1px solid #fafafa;
+    border-left: 1px solid #d7d7d7;
 }
 
 .weather {
-    border-left: 1px solid #fafafa;
+    border-left: 1px solid #d7d7d7;
 
 }
