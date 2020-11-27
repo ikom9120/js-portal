@@ -25,5 +25,29 @@
 
 .weather {
     border-left: 1px solid #d7d7d7;
+}
 
+.img-news {
+    max-width: 200px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.text-news {
+    color: #373837;
+    font-size: 14px;
+    text-align: justify;
+}
+
+.created-news {
+    color: #7e827e;
+    font-size: 12px;
+}
+
+hr {
+    color: #dce0dc;
+}
+
+.indent {
+    margin: 18px;
 }
