@@ -11,3 +11,8 @@ jquery@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
   integrity sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg==
+
+sweetalert2@^10.10.3:
+  version "10.10.3"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-10.10.3.tgz#4a0b39086ff2f2d51d8ca7744b7b0ecdfc46c72f"
+  integrity sha512-rhylUlwmDWv6UPiFYwY6EqmUixifi4o2vssixVnZ7xUsF4dhtqYdKvKxNxs/b6us0njSiBdMRni/oTVJ2p5lhw==
