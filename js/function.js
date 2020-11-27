@@ -12,7 +12,7 @@ function getNews() {
             for (let i = 0; i < response.length; i++) {
                 $('.news').append(response[i]['title'] + '<br>');
                 $('.news').append('<img src="' + response[i]['image'] + '" class="img-news" > <br>');
-                $('.news').append('<div class="text-news">' + response[i]['text'] + '</div> <br>');
+                $('.news').append('<div class="text-news">' + response[i]['text'] + '</div>');
                 $('.news').append('<div class="indent"></div>');
                 $('.news').append('<div class="created-news">' + response[i]['created_at'] + '</div>');
                 $('.news').append('<hr><br>');
