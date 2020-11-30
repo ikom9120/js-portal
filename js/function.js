@@ -8,7 +8,7 @@ function getNews() {
         dataType: 'json',
         timeout: 5 * 1000,
         success: function (response) {
-            $('.load').hide();
+            $('.load-news').hide();
             for (let i = 0; i < response.length; i++) {
                 $('.news').append(response[i]['title'] + '<br>');
                 $('.news').append('<img src="' + response[i]['image'] + '" class="img-news" > <br>');
@@ -17,6 +17,27 @@ function getNews() {
                 $('.news').append('<div class="created-news">' + response[i]['created_at'] + '</div>');
                 $('.news').append('<hr><br>');
             }
+        },
+        error: function (response) {
+            Swal.fire(
+                'Ошибка отправки'
+            );
+        }
+    });
+}
+
+/**
+ * Ф-ция отправляет запрос для подтягивания гороскопа с backend
+ */
+function getHoro(sign) {
+    $.ajax({
+        url: '/backend/horo.php?sign=' + sign,
+        type: 'get',
+        dataType: 'json',
+        timeout: 5 * 1000,
+        success: function (response) {
+            $('.load-horo').hide();
+            $('#sign-' + sign + ' .card-body').html(response['text']);
         },
         error: function (response) {
             Swal.fire(
