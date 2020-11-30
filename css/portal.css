@@ -52,3 +52,32 @@ hr {
     margin: 15px;
 }
 
+.sign {
+    height: 20px;
+    width: 20px;
+}
+
+.btn-outline-secondary {
+    max-height: 90px;
+    min-width: 255px;
+    border: 1px solid #dfdfdf !important;
+}
+
+.load-news {
+    height: 20px;
+    width: 20px;
+
+}
+
+.load-horo {
+    height: 20px;
+    width: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-body {
+    color: #373837;
+    font-size: 14px;
+    text-align: justify;
+}
