@@ -66,7 +66,6 @@ hr {
 .load-news {
     height: 20px;
     width: 20px;
-
 }
 
 .load-horo {
@@ -76,8 +75,37 @@ hr {
     margin-right: auto;
 }
 
+.load-weather {
+    height: 20px;
+    width: 20px;
+}
+
 .card-body {
     color: #373837;
     font-size: 14px;
     text-align: justify;
+}
+
+.img-type {
+    height: 30px;
+    width: 30px;
+}
+
+#yesterday {
+    font-size: 14px;
+    color: #373837;
+}
+
+#today {
+    font-size: 14px;
+    color: #373837;
+}
+
+#tomorrow {
+    font-size: 14px;
+    color: #373837;
+}
+
+.day {
+    color: #6c757d;
 }
