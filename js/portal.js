@@ -5,4 +5,5 @@ $(document).ready(function () {
         getHoro($(this).attr('data-sign'));
     });
 
+    getWeather();
 });
