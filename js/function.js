@@ -57,7 +57,6 @@ function getWeather() {
         dataType: 'json',
         timeout: 5 * 1000,
         success: function (response) {
-            console.log(response);
             $('.load-weather').hide();
             let type = '';
             if (response['odessa']['yesterday']['type'] === "snow") {
@@ -69,7 +68,8 @@ function getWeather() {
             if (response['odessa']['yesterday']['type'] === "sun") {
                 type = 'солнце';
             }
-            $('#yesterday').append(' ' + response['odessa']['yesterday']['degrees'] + ' ℃' + '<br>' + [type]);
+            $('#yesterday').append(' ' + response['odessa']['yesterday']['degrees'] + ' ℃' + '<br>' + type
+                + '<br>влажность: ' + response['odessa']['yesterday']['humidity']);
             if (response['odessa']['yesterday']['type'] === "snow") {
                 $('#yesterday').html('<img src="image/snow.png" class="img-type">' + $('#yesterday').html() + '<br><br>');
             }
@@ -89,7 +89,8 @@ function getWeather() {
             if (response['odessa']['today']['type'] === "sun") {
                 type = 'солнце';
             }
-            $('#today').append(' ' + response['odessa']['today']['degrees'] + ' ℃' + '<br>' + [type]);
+            $('#today').append(' ' + response['odessa']['today']['degrees'] + ' ℃' + '<br>' + type
+                + '<br>влажность: ' + response['odessa']['today']['humidity']);
             if (response['odessa']['today']['type'] === "snow") {
                 $('#today').html('<img src="image/snow.png" class="img-type">' + $('#today').html() + '<br><br>');
             }
@@ -109,7 +110,8 @@ function getWeather() {
             if (response['odessa']['tomorrow']['type'] === "sun") {
                 type = 'солнце';
             }
-            $('#tomorrow').append(' ' + response['odessa']['tomorrow']['degrees'] + ' ℃' + '<br>' + [type]);
+            $('#tomorrow').append(' ' + response['odessa']['tomorrow']['degrees'] + ' ℃' + '<br>' + type
+                + '<br>влажность: ' + response['odessa']['tomorrow']['humidity']);
             if (response['odessa']['tomorrow']['type'] === "snow") {
                 $('#tomorrow').html('<img src="image/snow.png" class="img-type">' + $('#tomorrow').html() + '<br><br>');
             }
