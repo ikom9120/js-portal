@@ -10,12 +10,13 @@ function getNews() {
         success: function (response) {
             $('.load-news').hide();
             for (let i = 0; i < response.length; i++) {
-                $('.news').append(response[i]['title'] + '<br>');
-                $('.news').append('<img src="' + response[i]['image'] + '" class="img-news" > <br>');
-                $('.news').append('<div class="text-news">' + response[i]['text'] + '</div>');
-                $('.news').append('<div class="indent"></div>');
-                $('.news').append('<div class="created-news">' + response[i]['created_at'] + '</div>');
-                $('.news').append('<hr><br>');
+                let news = $('.news');
+                news.append(response[i]['title'] + '<br>');
+                news.append('<img src="' + response[i]['image'] + ' " class="img-news" alt=""> <br>');
+                news.append('<div class="text-news">' + response[i]['text'] + '</div>');
+                news.append('<div class="indent"></div>');
+                news.append('<div class="created-news">' + response[i]['created_at'] + '</div>');
+                news.append('<hr><br>');
             }
         },
         error: function (response) {
@@ -58,68 +59,24 @@ function getWeather() {
         timeout: 5 * 1000,
         success: function (response) {
             $('.load-weather').hide();
-            let type = '';
-            if (response['odessa']['yesterday']['type'] === "snow") {
-                type = 'снег';
-            }
-            if (response['odessa']['yesterday']['type'] === "rain") {
-                type = 'дождь';
-            }
-            if (response['odessa']['yesterday']['type'] === "sun") {
-                type = 'солнце';
-            }
-            $('#yesterday').append(' ' + response['odessa']['yesterday']['degrees'] + ' ℃' + '<br>' + type
-                + '<br>влажность: ' + response['odessa']['yesterday']['humidity']);
-            if (response['odessa']['yesterday']['type'] === "snow") {
-                $('#yesterday').html('<img src="image/snow.png" class="img-type">' + $('#yesterday').html() + '<br><br>');
-            }
-            if (response['odessa']['yesterday']['type'] === "rain") {
-                $('#yesterday').html('<img src="image/rain.png" class="img-type">' + $('#yesterday').html() + '<br><br>');
-            }
-            if (response['odessa']['yesterday']['type'] === "sun") {
-                $('#yesterday').html('<img src="image/sun.png" class="img-type">' + $('#yesterday').html() + '<br><br>');
-            }
 
-            if (response['odessa']['today']['type'] === "snow") {
-                type = 'снег';
-            }
-            if (response['odessa']['today']['type'] === "rain") {
-                type = 'дождь';
-            }
-            if (response['odessa']['today']['type'] === "sun") {
-                type = 'солнце';
-            }
-            $('#today').append(' ' + response['odessa']['today']['degrees'] + ' ℃' + '<br>' + type
-                + '<br>влажность: ' + response['odessa']['today']['humidity']);
-            if (response['odessa']['today']['type'] === "snow") {
-                $('#today').html('<img src="image/snow.png" class="img-type">' + $('#today').html() + '<br><br>');
-            }
-            if (response['odessa']['today']['type'] === "rain") {
-                $('#today').html('<img src="image/rain.png" class="img-type">' + $('#today').html() + '<br><br>');
-            }
-            if (response['odessa']['today']['type'] === "sun") {
-                $('#today').html('<img src="image/sun.png" class="img-type">' + $('#today').html() + '<br><br>');
-            }
+            let arr = ['yesterday', 'today', 'tomorrow'];
+            for (let i = 0; i < arr.length; i++) {
 
-            if (response['odessa']['tomorrow']['type'] === "snow") {
-                type = 'снег';
-            }
-            if (response['odessa']['tomorrow']['type'] === "rain") {
-                type = 'дождь';
-            }
-            if (response['odessa']['tomorrow']['type'] === "sun") {
-                type = 'солнце';
-            }
-            $('#tomorrow').append(' ' + response['odessa']['tomorrow']['degrees'] + ' ℃' + '<br>' + type
-                + '<br>влажность: ' + response['odessa']['tomorrow']['humidity']);
-            if (response['odessa']['tomorrow']['type'] === "snow") {
-                $('#tomorrow').html('<img src="image/snow.png" class="img-type">' + $('#tomorrow').html() + '<br><br>');
-            }
-            if (response['odessa']['tomorrow']['type'] === "rain") {
-                $('#tomorrow').html('<img src="image/rain.png" class="img-type">' + $('#tomorrow').html() + '<br><br>');
-            }
-            if (response['odessa']['tomorrow']['type'] === "sun") {
-                $('#tomorrow').html('<img src="image/sun.png" class="img-type">' + $('#tomorrow').html() + '<br><br>');
+                let type = getType(response, arr[i]);
+
+                $('#' + arr[i]).append(' ' + response['odessa'][arr[i]]['degrees'] + ' ℃' + '<br>' + type
+                    + '<br>влажность: ' + response['odessa'][arr[i]]['humidity']);
+
+                if (response['odessa'][arr[i]]['type'] === "snow") {
+                    appendContent(arr[i], imgSnow);
+                }
+                if (response['odessa'][arr[i]]['type'] === "rain") {
+                    appendContent(arr[i], imgRain);
+                }
+                if (response['odessa'][arr[i]]['type'] === "sun") {
+                    appendContent(arr[i], imgSun);
+                }
             }
         },
         error: function (response) {
@@ -130,6 +87,33 @@ function getWeather() {
     });
 }
 
+let imgSnow = '<img src="image/snow.png" class="img-type" alt="">';
+let imgRain = '<img src="image/rain.png" class="img-type" alt="">';
+let imgSun = '<img src="image/sun.png" class="img-type" alt="">';
+
+/**
+ * Ф-ция добавляет информацию о погоде
+ */
+function appendContent(nameDay, nameImage) {
+    $('#' + nameDay).html(nameImage + $('#' + nameDay).html() + '<br><br>')
+}
+
+/**
+ * Ф-ция добавляет тип погоды
+ */
+function getType(response, nameDay) {
+    let type = '';
+    if (response['odessa'][nameDay]['type'] === "snow") {
+        type = 'снег';
+    }
+    if (response['odessa'][nameDay]['type'] === "rain") {
+        type = 'дождь';
+    }
+    if (response['odessa'][nameDay]['type'] === "sun") {
+        type = 'солнце';
+    }
+    return type;
+}
 
 
 
