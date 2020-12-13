@@ -7,6 +7,8 @@
     color: white;
     font-size: 25px;
     margin-top: 15px;
+    float: left;
+    margin-right: 26px;
 }
 
 .content {
@@ -58,8 +60,8 @@ hr {
 }
 
 .btn-outline-secondary {
-    max-height: 90px;
-    min-width: 255px;
+    min-height: 90px;
+    min-width: 100%;
     border: 1px solid #dfdfdf !important;
 }
 
@@ -108,4 +110,15 @@ hr {
 
 .day {
     color: #6c757d;
+}
+
+.currencies {
+    font-size: 14px;
+    margin-top: 26px;
+    color: white;
+}
+
+.load-currencies {
+    height: 20px;
+    width: 20px;
 }
