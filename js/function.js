@@ -115,6 +115,24 @@ function getType(response, nameDay) {
     return type;
 }
 
-
+/**
+ * Ф-ция отправляет запрос для подтягивания курса валют с backend
+ */
+function getCurrencies() {
+    $.ajax({
+        url: '/backend/currencies.php',
+        type: 'get',
+        dataType: 'json',
+        timeout: 5 * 1000,
+        success: function (response) {
+            $('.currencies').html('<b>USD: </b>' + response['usd'] + '  ' + '<b>EUR: </b>' + response['eur']);
+        },
+        error: function (response) {
+            Swal.fire(
+                'Ошибка отправки'
+            );
+        }
+    });
+}
 
 
